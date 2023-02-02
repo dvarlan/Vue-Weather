@@ -1,5 +1,7 @@
 # weathertesting
 
+Test Repo for learning Vue :^)
+
 ## Project setup
 ```
 npm install
