@@ -21,7 +21,8 @@
                                 enable: false,
                             },
                             onHover: {
-                                enable: false
+                                enable: true,
+                                mode: ['grab', 'connect']
                             },
                             resize: false
                         },
