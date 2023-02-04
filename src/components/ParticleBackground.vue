@@ -69,7 +69,7 @@
                                 enable: true,
                                 area: 1200
                             },
-                            value: 60
+                            value: 80
                         },
                         opacity: {
                             value: 0.5
