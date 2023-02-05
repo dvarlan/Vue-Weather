@@ -1,7 +1,11 @@
 <template>
     <div class="blur">
         <div class="input">
-            <input v-model="query" type="text" placeholder="Enter Cityname or Postcode..."/>
+            <input
+            v-model="query"
+            @keypress.enter="getWeather"
+            type="text"
+            placeholder="Enter Cityname or Postcode..." />
         </div>
         <p>{{ query }}</p>
     </div>
@@ -20,9 +24,23 @@ input {
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            query: '' 
+            query: '',
+            urlBase: 'https://api.openweathermap.org/data/2.5/',
+            weather: {}
+        }
+    },
+    methods: {
+        async getWeather() {
+            // Returns 401 Error -> Key probably not activated yet
+            let response = await fetch(`${this.urlBase}weather?q=${this.query}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
+            if (response.ok) {
+                this.weather = await response.json()
+                console.log(this.weather)
+            } else {
+                console.log("ERROR could not fetch the data!")
+            }
         }
     }
 }
