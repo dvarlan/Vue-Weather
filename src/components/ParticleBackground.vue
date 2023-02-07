@@ -14,7 +14,8 @@
                         enable: true,
                         zIndex: -1
                     },
-                    fpsLimit: 144,
+                    fpsLimit: 240,
+                    smooth: true,
                     interactivity: {
                         events: {
                             onClick: {

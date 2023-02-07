@@ -5,9 +5,20 @@
             v-model="query"
             @keypress.enter="getWeather"
             type="text"
-            placeholder="Enter Cityname or Postcode..." />
+            placeholder="Enter Cityname..." />
         </div>
-        <p>{{ query }}</p>
+        <div class="weatherDisplay" v-if="finishedQuery">
+            <div class="weather" v-if="!responseError">
+                <p>{{ weather.name }}</p>
+                <p>{{ weather.coord.lat }} {{ weather.coord.lon }}</p>
+                <p>{{ weather.weather[0].description }}</p>
+                <p>Temp {{ weather.main.temp }} °C</p>
+                <p>Windspeed {{ weather.wind.speed }} kts</p>
+            </div>
+            <div class="weatherError" v-else-if="responseError">
+                <p>An Error occured while fetching the requested data!</p>
+            </div>
+        </div>    
     </div>
 </template>
 
@@ -28,19 +39,23 @@ export default {
         return {
             query: '',
             urlBase: 'https://api.openweathermap.org/data/2.5/',
-            weather: {}
+            weather: {},
+            finishedQuery: false,
+            responseError: false
         }
     },
     methods: {
         async getWeather() {
-            // Returns 401 Error -> Key probably not activated yet
             let response = await fetch(`${this.urlBase}weather?q=${this.query}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
             if (response.ok) {
+                this.responseError = false
                 this.weather = await response.json()
                 console.log(this.weather)
             } else {
+                this.responseError = true
                 console.log("ERROR could not fetch the data!")
             }
+            this.finishedQuery = true
         }
     }
 }

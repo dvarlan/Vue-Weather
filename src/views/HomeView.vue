@@ -46,10 +46,32 @@ export default {
 }
 
 #toggleBtn {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+
   position: absolute;
   top: 0;
   right: 0;
   margin-top: 10px;
   margin-right: 10px;
+
+  cursor: pointer;
+
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(181, 215, 246, 0.597);
+  transition: 0.4s;
+  padding: 8px;
+  border-radius: 2px;
+}
+
+#toggleBtn:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(3px);
+  border-radius: 5%;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 </style>
