@@ -9,8 +9,8 @@
         </div>
         <div class="weatherDisplay" v-if="finishedQuery">
             <div class="weather" v-if="!responseError">
-                <p>{{ weather.name }}</p>
-                <p>{{ weather.coord.lat }} {{ weather.coord.lon }}</p>
+                <p id="cityName">{{ weather.name }}</p>
+                <p id="cityCoords">{{ weather.coord.lat }} {{ weather.coord.lon }}</p>
                 <p>{{ weather.weather[0].description }}</p>
                 <p>Temp {{ weather.main.temp }} °C</p>
                 <p>Windspeed {{ weather.wind.speed }} kts</p>
@@ -30,6 +30,29 @@ input {
     height: 5px;
     width: 200px;
     border-radius: 5%;
+}
+.weatherDisplay {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: rgba(181, 215, 246, 0.597);
+
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(3px);
+    border-radius: 5%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: max-content;
+    margin: auto;
+    margin-top: 12px;
+    padding: 10px;
+}
+#cityName {
+    font-size: 50px;
+    font-weight: 600;
+    margin: auto;
+}
+#cityCoords {
+    font-size: 15px;
 }
 </style>
 
