@@ -29,7 +29,25 @@ input {
     padding: 20px 20px;
     height: 5px;
     width: 200px;
+
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(3px);
     border-radius: 5%;
+    border: none;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    color: rgba(181, 215, 246, 0.597);
+    font-size: 19px;
+    font-weight: 400;
+    text-align: center;
+    transition: 1s;
+}
+input:focus {
+    border: none;
+    outline: none;
+    color: #B2CFCF;
+    backdrop-filter: blur(25px);
+    text-align: center;
 }
 .weatherDisplay {
     font-family: Avenir, Helvetica, Arial, sans-serif;
