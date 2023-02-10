@@ -1,6 +1,6 @@
-# weathertesting
+# Vue Weather
 
-Test Repo for learning Vue :^)
+A simple weather App built with Vue.
 
 ## Project setup
 ```
